@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────
+#  Decap CMS configuration
+#  Docs: https://decapcms.org/docs/configuration-options/
+# ─────────────────────────────────────────────────────────────
+
+# Where content is stored in PRODUCTION. git-gateway is a placeholder that is
+# ready for Netlify later. It is completely IGNORED while local_backend is on.
+backend:
+  name: git-gateway
+  branch: main
+
+# Run the CMS against the local proxy (npm run cms) so you can edit with NO
+# login during development. Set this to false (or remove it) for production.
+local_backend: true
+
+# Images uploaded in the CMS are written to this folder on disk...
+media_folder: "src/uploads"
+# ...and referenced in pages by this public URL path.
+public_folder: "/uploads"
+
+collections:
+  # A FOLDER collection: every entry is one Markdown file in src/posts/.
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      # A field named "body" is stored as the Markdown body of the file,
+      # below the frontmatter — exactly what Eleventy renders as the page.
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # A FILE collection: edits one specific JSON file that Eleventy uses for
+  # site-wide values. This is the pattern we'd later use for your story.json.
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "site"
+        label: "Site settings"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }

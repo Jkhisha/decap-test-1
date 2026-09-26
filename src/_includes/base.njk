@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">{{ site.title }}</a>
+    <a class="edit-link" href="/admin/">✎ Edit content</a>
+  </header>
+  <main class="container">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <p>Content managed with Decap CMS · Built with Eleventy</p>
+  </footer>
+</body>
+</html>
