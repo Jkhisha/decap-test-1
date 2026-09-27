@@ -1,5 +1,5 @@
 ---
-title: How editing works
+title: How editing works version 2
 date: 2026-09-25
 ---
 Every post you create in the admin becomes a Markdown file in `src/posts/`.
