@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Netlify Identity: powers the online admin login (harmless locally). -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -17,5 +19,18 @@
   <footer class="site-footer">
     <p>Content managed with Decap CMS · Built with Eleventy</p>
   </footer>
+  <!-- When someone accepts an email invite, they land here with a token;
+       this sends them straight into the admin after they log in. -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

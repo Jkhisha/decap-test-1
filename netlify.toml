@@ -1,0 +1,10 @@
+# Netlify build settings — Netlify reads this automatically on deploy.
+[build]
+  # Runs the Eleventy build (see package.json "build" script).
+  command = "npm run build"
+  # The folder Eleventy generates; this is what Netlify serves.
+  publish = "_site"
+
+[build.environment]
+  # Eleventy 3 needs a modern Node. Pin it so builds are reproducible.
+  NODE_VERSION = "20"
