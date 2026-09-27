@@ -3,7 +3,6 @@ module.exports = function (eleventyConfig) {
   // NOTE: this is why your animation JS/CSS would survive intact —
   // Eleventy never rewrites passthrough files, it just copies them.
   eleventyConfig.addPassthroughCopy("src/admin");
-  eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/uploads");
 
   // Tiny YYYY-MM-DD date filter so templates can print post dates.
