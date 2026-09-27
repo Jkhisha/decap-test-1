@@ -174,6 +174,18 @@ On your Netlify site dashboard:
 5. Open the invite email → set a password
 6. Go to `https://SOMENAME.netlify.app/admin` → log in → edit
 
+### 7. Add your own domain (optional)
+You need a domain you own (from any registrar, e.g. Namecheap, GoDaddy).
+1. Netlify site → **Domain management → Add a domain** → type `yourdomain.com`.
+2. Netlify shows the DNS to set. At your registrar's DNS settings, add:
+   - **A record**: host `@` → `75.2.60.5`
+   - **CNAME record**: host `www` → `YOURSITE.netlify.app`
+   (Or, easiest: switch your registrar's nameservers to Netlify DNS as Netlify instructs.)
+3. Wait for DNS to update (minutes to a few hours).
+4. Netlify auto-issues free HTTPS — check **Domain management → HTTPS**.
+5. Done: site is at `https://yourdomain.com`, admin at `https://yourdomain.com/admin`
+   (no config change needed).
+
 ---
 
 ## PART 2 — MAINTENANCE (how to run it day to day)
