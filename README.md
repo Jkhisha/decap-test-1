@@ -47,7 +47,9 @@ Then open:
 ## Try the loop
 
 1. Open the admin, go to **Posts**, edit "Hello from Decap CMS", change some text, click **Publish**.
-2. Watch the file `src/posts/hello-decap.md` change on disk (and a git commit appear).
+2. Watch the file `src/posts/hello-decap.md` change on disk. (In local dev the proxy
+   runs in `local_fs` mode — it writes the file directly; it does **not** auto-commit.
+   In production with a real GitHub backend, each publish becomes a git commit instead.)
 3. The website at :8080 rebuilds automatically — your change is live.
 
 That round-trip is all Decap CMS does. Everything else (more collections, images,

@@ -1,5 +1,5 @@
 ---
-title: Hello from Decap CMS
+title: Hello kutria Kemon Lasdawe from Decap CMS
 date: 2026-09-26
 ---
 This post is a plain Markdown file at `src/posts/hello-decap.md`.
